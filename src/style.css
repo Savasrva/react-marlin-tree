@@ -4,7 +4,7 @@
 #marlinTreeView .start_back ul li p{margin: 0; padding: 0 }
 #marlinTreeView .contents_start button{
   height: 42px; font-size: 18px; text-align: center;
-  margin: 10px; padding:0; display: inline-block; opacity:.8;
+  margin: 10px; padding:0; display: inline-block; opacity:.7;
   border: 1px lightgray solid; border-radius: 20px; box-shadow: 0 0 10px #ddd; text-indent: 15px; }
 #marlinTreeView .contents_start button[type="button"]{width: 350px; background-position:0 -123px; }
 #marlinTreeView .contents_start button[type="submit"]{width: 150px; color: #008B8B; background-position:0 -163px; }
@@ -23,14 +23,14 @@
 
 /*group on&off*/
 #marlinTreeView .contents_wrap .button_child_down,
-#marlinTreeView .contents_wrap .button_childList_none,
+#marlinTreeView .contents_wrap .button_child_none,
 #marlinTreeView .contents_wrap .button_child_up{
   position: absolute; left: -21px; top: 10px; background-position: -1px -101px; }
 #marlinTreeView .contents_wrap .button_child_up{transform: rotate(0deg); }
 #marlinTreeView .contents_wrap .button_child_down{transform: rotate(90deg);}
 #marlinTreeView .contents_wrap .button_child_up:hover{transform: rotate(90deg); }
 #marlinTreeView .contents_wrap .button_child_down:hover{transform: rotate(0deg); }
-#marlinTreeView .contents_wrap .button_childList_none{display: none; }
+#marlinTreeView .contents_wrap .button_child_none{display: none; }
 
 /*button common*/
 #marlinTreeView button{
@@ -39,7 +39,7 @@
 #marlinTreeView button:hover{opacity: .8;}
 #marlinTreeView .button_child_up,
                 .button_child_down,
-                .button_childList_none,
+                .button_child_none,
                 .button_edit_on,
                 .button_edit_off,
                 .button_delete,
@@ -49,22 +49,22 @@
 #marlinTreeView .button_add{
   width: 30px; height: 30px; margin: 5px 0 5px 5px; float: left; }
 
-/*추가버튼*/
+/*ADD버튼*/
 #marlinTreeView .button_add{background-position: -5px -128px; }
 
-/*삭제버튼*/
+/*DELETE버튼*/
 #marlinTreeView .button_delete{
   width: 15px; height: 15px; margin: 12px; position: absolute; top: 0; right: 0; background-position: 0 -64px; }
 
-/*수정버튼*/
+/*EDIT버튼*/
 #marlinTreeView .contents_tree .button_edit_on,
 #marlinTreeView .contents_tree .button_edit_off{ position: absolute; top: 0; right: 38px; margin: 10px 0; }
-#marlinTreeView .contents_tree .button_edit_on{ display: block; background-position: 0 -44px; }
+#marlinTreeView .contents_tree .button_edit_on{ display: block; background-position: 0 -43px; }
 #marlinTreeView .contents_tree .button_edit_off{ display: none; background-position: 0 -81px; }
 #marlinTreeView .contents_tree:hover .button_edit_off,
 #marlinTreeView .contents_tree:hover .button_unlock{ display: block; }
 
-/*잠금버튼*/
+/*LOCK버튼*/
 #marlinTreeView .button_lock,
 #marlinTreeView .button_unlock{ position: absolute; margin: 10px; background-size: 37px; }
 #marlinTreeView .button_unlock{ display: none; right: 60px; background-position: 0 0; }

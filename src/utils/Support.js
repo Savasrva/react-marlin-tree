@@ -2,7 +2,7 @@ export const initData = () => {
   return {
     title: '',
     isEditMode: true,
-    isEditable: true,
+    isLocked: false,
     order: 0,
     childNodes: []
   };

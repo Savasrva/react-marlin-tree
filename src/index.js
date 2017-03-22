@@ -8,44 +8,44 @@ const rootElement = document.getElementById('tree-wrapper');
 const data = [
   {
     title: 'Hero',
-    isEditable: false,
+    isLocked: true,
     order: 0,
     childNodes: [
       {
         title: 'Marvel',
-        isEditable: true,
+        isLocked: false,
         order: 0,
         childNodes: [
           {
             title: 'Captain America',
-            isEditable: false,
+            isLocked: true,
             order: 0
           },
           {
             title: 'Iron man',
-            isEditable: true,
+            isLocked: false,
             order: 1
           },
           {
             title: 'Hulk',
-            isEditable: false,
+            isLocked: true,
             order: 2
           }
         ]
       },
       {
         title: 'DC',
-        isEditable: true,
+        isLocked: false,
         order: 1,
         childNodes: [
           {
             title: 'SuperMan',
-            isEditable: false,
+            isLocked: true,
             order: 0
           },
           {
             title: 'BatMan',
-            isEditable: false,
+            isLocked: false,
             order: 1
           }
         ]

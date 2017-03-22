@@ -7,6 +7,7 @@ class Tree extends React.Component {
 
   constructor(props) {
     super(props);
+    this._handleChange = this._handleChange.bind(this);
     this._handleFold = this._handleFold.bind(this);
     this._addRootNode = this._addRootNode.bind(this);
     this._addNode = this._addNode.bind(this);
@@ -15,9 +16,18 @@ class Tree extends React.Component {
     };
   }
 
-  _handleFold(e) {
-    const target = e.target,
-      ul = target.parentElement.lastElementChild;
+  _handleChange({target}) {
+    const nodeData = _.cloneDeep(this.state.nodeData),
+      index = target.closest('li').getAttribute('data-index').split('-'),
+      selectedNode = selectData(nodeData, index);
+
+    selectedNode.title = target.value;
+
+    this.setState({nodeData : nodeData});
+  }
+
+  _handleFold({target}) {
+    const ul = target.parentElement.lastElementChild;
     target.setAttribute('class', 'childList_up');
 
     const t = ul.animate([
@@ -66,22 +76,47 @@ class Tree extends React.Component {
   _renderEditField(title) {
     return (
       <span className="input_area">
-        <input type="text" className="edit" onChange={this.handleChange} value={title}/>
+        <input type="text" className="edit" onChange={this._handleChange} value={title}/>
       </span>
     );
   }
 
-  _renderButtonGroup(keys, type) {
+  _renderDefaultBtns() {
     return (
       <div className="button_group">
         <button onClick={this._addNode} type="button" className="button_add">ADD</button>
-        <button type="button" className="button_unlock">UNLOCK</button>
-        { /*<button className="button_edit_on">EDIT</button> */}
-        { /*<button className="button_lock">LOCK</button> */}
-        <button type="button" className="button_edit_off">COMPLETE</button>
+        <button type="button" className="button_unlock">LOCK</button>
+        <button type="button" className="button_edit_off">EDIT</button>
         <button type="button" className="button_delete">DELETE</button>
       </div>
     );
+  }
+
+  _renderEditBtns() {
+    return (
+      <div className="button_group">
+        <button type="button" className="button_edit_on">COMPLETE</button>
+        <button type="button" className="button_delete">DELETE</button>
+      </div>
+    );
+  }
+
+  _renderLockBtns() {
+    return (
+      <div className="button_group">
+        <button type="button" className="button_lock">UNLOCK</button>
+      </div>
+    )
+  }
+
+  _renderButtonGroup(keys, isEditMode = false, isLocked = false) {
+    if(isLocked) {
+      return this._renderLockBtns();
+    } else if(isEditMode) {
+      return this._renderEditBtns();
+    } else {
+      return this._renderDefaultBtns();
+    }
   }
 
   _renderNode(node, keys) {
@@ -90,7 +125,7 @@ class Tree extends React.Component {
       <li data-index={keys} key={keys}>
         <button type="button" className={hasChild} onClick={this._handleFold}>open</button>
         <div className="contents_tree">
-          {node.isEditable && this.props.isEditable ? this._renderButtonGroup(keys, 'CREATE') : undefined}
+          {this.props.isEditable ? this._renderButtonGroup(keys, node.isEditMode, node.isLocked) : undefined}
           <div className="text_area">
             {node.isEditMode ? this._renderEditField(node.title) : this._renderReadField(node.title)}
           </div>
