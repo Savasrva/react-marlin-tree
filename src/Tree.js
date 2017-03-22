@@ -74,20 +74,22 @@ class Tree extends React.Component {
   _renderButtonGroup(keys, type) {
     return (
       <div className="button_group">
-        <button onClick={this._addNode} className="add_button">ADD</button>
-        <button className="delete_button">DELETE</button>
-        { /*<button className="edit_start">EDIT</button> */}
-        <button className="edit_end">COMPLETE</button>
+        <button onClick={this._addNode} type="button" className="button_add">ADD</button>
+        <button type="button" className="button_unlock">UNLOCK</button>
+        { /*<button className="button_edit_on">EDIT</button> */}
+        { /*<button className="button_lock">LOCK</button> */}
+        <button type="button" className="button_edit_off">COMPLETE</button>
+        <button type="button" className="button_delete">DELETE</button>
       </div>
     );
   }
 
   _renderNode(node, keys) {
-    const hasChild = _.isEmpty(node.childNodes) ? 'childList_none' : 'childList_down';
+    const hasChild = _.isEmpty(node.childNodes) ? 'button_child_none' : 'button_child_down';
     return (
       <li data-index={keys} key={keys}>
-        <button className={hasChild} onClick={this._handleFold}>open</button>
-        <div className="contentsBlock">
+        <button type="button" className={hasChild} onClick={this._handleFold}>open</button>
+        <div className="contents_tree">
           {node.isEditable && this.props.isEditable ? this._renderButtonGroup(keys, 'CREATE') : undefined}
           <div className="text_area">
             {node.isEditMode ? this._renderEditField(node.title) : this._renderReadField(node.title)}
@@ -116,8 +118,9 @@ class Tree extends React.Component {
       <div className="start_back">
         <ul>
           <li><p><strong>MARLIN TREE</strong></p></li>
-          <li className="start_contents">
-            <button onClick={this._addRootNode}><span className="add_button"></span>MARLIN TREE START</button>
+          <li className="contents_start">
+            <button type="button">MARLIN TREE START</button>
+            <button type="submit">SUBMIT</button>
           </li>
         </ul>
       </div>
