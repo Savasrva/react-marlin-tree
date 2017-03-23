@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import style from 'style.css';
 import Tree from './Tree';
 
 const rootElement = document.getElementById('tree-wrapper');
@@ -8,7 +7,7 @@ const rootElement = document.getElementById('tree-wrapper');
 const data = [
   {
     title: 'Hero',
-    isLocked: true,
+    isLocked: false,
     order: 0,
     childNodes: [
       {
@@ -35,7 +34,7 @@ const data = [
       },
       {
         title: 'DC',
-        isLocked: false,
+        isLocked: true,
         order: 1,
         childNodes: [
           {
