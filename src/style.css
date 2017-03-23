@@ -11,13 +11,13 @@
 #marlinTreeView .contents_start button:active{box-shadow: 0 0 10px #000; }
 
 /*contents wrap */
-#marlinTreeView .contents_wrap{display:flex; display: -webkit-flex; padding:10px 0; }
-#marlinTreeView .contents_wrap ul {padding-left:40px; margin:0; list-style:none; }
+#marlinTreeView .contents_wrap{display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; width:600px; padding:10px 0; box-sizing:border-box; }
+#marlinTreeView .contents_wrap ul {width:100%; padding-left:40px; margin:0; list-style:none; box-sizing:border-box; }
 #marlinTreeView .contents_wrap li{position:relative; }
 
 /*tree wrap*/
 #marlinTreeView .contents_tree{
-  display: flex; display: -webkit-flex; height: 40px; position: relative; margin: 10px;
+  display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; height: 40px; position: relative; margin: 10px;
   border: 1px lightgray solid; border-radius: 20px 4px 4px 20px; box-shadow: 0 0 8px #eeeeee; z-index: 10; }
 #marlinTreeView .contents_tree:active{ background-color: #fff; box-shadow: 0 0 10px #008B8B; }
 
@@ -28,8 +28,6 @@
   position: absolute; left: -21px; top: 10px; background-position: -1px -101px; }
 #marlinTreeView .contents_wrap .button_child_up{transform: rotate(0deg); }
 #marlinTreeView .contents_wrap .button_child_down{transform: rotate(90deg);}
-#marlinTreeView .contents_wrap .button_child_up:hover{transform: rotate(90deg); }
-#marlinTreeView .contents_wrap .button_child_down:hover{transform: rotate(0deg); }
 #marlinTreeView .contents_wrap .button_child_none{display: none; }
 
 /*button common*/
@@ -68,21 +66,23 @@
 #marlinTreeView .button_lock,
 #marlinTreeView .button_unlock{ position: absolute; margin: 10px; background-size: 37px; }
 #marlinTreeView .button_unlock{ display: none; right: 60px; background-position: 0 0; }
-#marlinTreeView .button_lock{ right: 0; background-position: 0 -20px; }
+#marlinTreeView .button_lock{ right: 0; background-position: 3px -20px; }
 
 
 /*텍스트 영역*/
-.contents_tree .text_area{width: 100%; min-width: 350px; padding-right: 70px; overflow: hidden; }
+.contents_tree .text_area{width: 100%; min-width: 350px; padding:0 70px 0 17px; overflow: hidden; }
 .contents_tree .text_area input{
   width: 100%; height: 25px; position: relative; box-sizing: border-box;
-  padding: 0 10px 0 5px; font-size: 18px; color: #008B8B;
+  padding: 0 10px 0 5px; margin-left:3px; font-size: 18px; color: #008B8B;
   background-color: transparent; border: none; border-bottom: 1px #008B8B solid; }
-.contents_tree .text_area span{width: 100%; height: 40px; line-height: 40px; display: inline-block; padding-left: 15px; box-sizing: border-box; }
+.contents_tree .text_area span{width: 100%; height: 40px; line-height: 40px; display: inline-block; box-sizing: border-box; }
 .contents_tree .read_area {cursor: move; }
+.contents_tree .read_area:before {content:" "; display:inline-block; width:6px; height:6px; margin:0 15px 0 0; border-radius:6px; background-color:#008b8b; vertical-align: middle; }
 
 /*mobile*/
 @media all and (max-width:479px) {
 
+#marlinTreeView .contents_wrap{width:100%;}
 #marlinTreeView .contents_wrap ul {width:100%; box-sizing:border-box;}
 .contents_tree .text_area{width: 100%; min-width: 50px; padding-right: 90px; }
 .contents_tree .text_area span{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
