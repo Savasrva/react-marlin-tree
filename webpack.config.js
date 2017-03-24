@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   entry: [
-    './src/Tree'
+    './src/index'
   ],
   devtool: 'source-map',
   output: {
@@ -20,10 +20,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
           warnings: false
-      },
-      mangle: false,
-      beautify: true,
-      comments: true,
+      }
     }),
 
   ],

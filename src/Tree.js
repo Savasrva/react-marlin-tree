@@ -1,10 +1,10 @@
 import React from 'react';
 import update from 'immutability-helper';
 import _ from 'lodash';
-import {initData, selectData, deleteData} from './utils/Support';
+import {initData, selectData, deleteData, closest} from './utils/Support';
 import style from 'style.css';
 
-class Tree extends React.Component {
+export default class Tree extends React.Component {
 
   constructor(props) {
     super(props);
@@ -27,7 +27,7 @@ class Tree extends React.Component {
 
   _handleDeleteNode({target}) {
     const nodeData = _.cloneDeep(this.state.nodeData),
-      index = target.closest('li').getAttribute('data-index').split('-');
+      index = closest(target, 'li').getAttribute('data-index').split('-');
 
     deleteData(nodeData, index);
 
@@ -36,7 +36,7 @@ class Tree extends React.Component {
 
   _handleToggleLock({target}) {
     const nodeData = _.cloneDeep(this.state.nodeData),
-      index = target.closest('li').getAttribute('data-index').split('-'),
+      index = closest(target, 'li').getAttribute('data-index').split('-'),
       selectedNode = selectData(nodeData, index);
 
     selectedNode.isLocked = !selectedNode.isLocked;
@@ -46,7 +46,7 @@ class Tree extends React.Component {
 
   _handleToggleEdit({target}) {
     const nodeData = _.cloneDeep(this.state.nodeData),
-      index = target.closest('li').getAttribute('data-index').split('-'),
+      index = closest(target, 'li').getAttribute('data-index').split('-'),
       selectedNode = selectData(nodeData, index);
 
     selectedNode.isEditMode = !selectedNode.isEditMode;
@@ -56,7 +56,7 @@ class Tree extends React.Component {
 
   _handleChange({target}) {
     const nodeData = _.cloneDeep(this.state.nodeData),
-      index = target.closest('li').getAttribute('data-index').split('-'),
+      index = closest(target, 'li').getAttribute('data-index').split('-'),
       selectedNode = selectData(nodeData, index);
 
     selectedNode.title = target.value;
@@ -66,24 +66,12 @@ class Tree extends React.Component {
 
   _handleToggleFold({target}) {
     const ul = target.parentElement.lastElementChild;
-    target.className = target.className === 'button_child_up' ? 'button_child_down' : 'button_child_up';
+    target.className = target.className === 'button_list_fold' ? 'button_list_unfold' : 'button_list_fold';
 
-    if(target.className === 'button_child_up') {
-      const t = ul.animate([
-        {opacity:1, easing: 'ease-out'},
-        {opacity:0.1, easing: 'ease-in'},
-        {opacity:0}
-      ], {duration: 1000})
-      t.addEventListener('finish', () => {
-        ul.className = 'button_child_none';
-      });
+    if(target.className === 'button_list_fold') {
+      ul.className = 'button_list_none';
     } else {
       ul.className = '';
-      const t = ul.animate([
-        {opacity:0, easing: 'ease-out'},
-        {opacity:0.2, easing: 'ease-in'},
-        {opacity:1}
-      ], {duration: 1000})
     }
   }
 
@@ -100,7 +88,7 @@ class Tree extends React.Component {
 
   _handleAddNode({target}) {
     const nodeData = _.cloneDeep(this.state.nodeData),
-      index = target.closest('li').getAttribute('data-index').split('-'),
+      index = closest(target, 'li').getAttribute('data-index').split('-'),
       selectedNode = selectData(nodeData, index);
 
     if(selectedNode.childNodes) {
@@ -169,7 +157,7 @@ class Tree extends React.Component {
   }
 
   _renderNode(node, keys, isParentLocked = false) {
-    const hasChild = _.isEmpty(node.childNodes) ? 'button_child_none' : 'button_child_down',
+    const hasChild = _.isEmpty(node.childNodes) ? 'button_list_none' : 'button_list_unfold',
       willChildLock = isParentLocked ? isParentLocked : node.isLocked;
     return (
       <li data-index={keys} key={keys}>
@@ -223,5 +211,3 @@ class Tree extends React.Component {
     );
   }
 }
-
-export default Tree;
