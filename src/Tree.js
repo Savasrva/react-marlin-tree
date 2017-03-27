@@ -66,7 +66,7 @@ export default class Tree extends React.Component {
 
   _handleToggleFold({target}) {
     const ul = target.parentElement.lastElementChild;
-    target.className = target.className === 'button_list_fold' ? 'button_list_unfold' : 'button_list_fold';
+    target.className = target.className === 'button_list_unfold' ? 'button_list_fold' : 'button_unlist_fold';
 
     if(target.className === 'button_list_fold') {
       ul.className = 'button_list_none';
@@ -120,7 +120,7 @@ export default class Tree extends React.Component {
     return (
       <div className="button_group">
         <button onClick={this._handleAddNode} type="button" className="button_add">ADD</button>
-        <button onClick={this._handleToggleLock} type="button" className="button_unlock">LOCK</button>
+        <button onClick={this._handleToggleLock} type="button" className="button_lock">LOCK</button>
         <button onClick={this._handleToggleEdit} type="button" className="button_edit_off">EDIT</button>
         <button onClick={this._handleDeleteNode} type="button" className="button_delete">DELETE</button>
       </div>
@@ -139,7 +139,7 @@ export default class Tree extends React.Component {
   _renderLockBtns() {
     return (
       <div className="button_group">
-        <button onClick={this._handleToggleLock} type="button" className="button_lock">UNLOCK</button>
+        <button onClick={this._handleToggleLock} type="button" className="button_unlock">UNLOCK</button>
       </div>
     )
   }
@@ -157,7 +157,7 @@ export default class Tree extends React.Component {
   }
 
   _renderNode(node, keys, isParentLocked = false) {
-    const hasChild = _.isEmpty(node.childNodes) ? 'button_list_none' : 'button_list_unfold',
+    const hasChild = _.isEmpty(node.childNodes) ? 'button_list_none' : 'button_list_fold',
       willChildLock = isParentLocked ? isParentLocked : node.isLocked;
     return (
       <li data-index={keys} key={keys}>
