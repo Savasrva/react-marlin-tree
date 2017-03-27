@@ -37,3 +37,15 @@ export const deleteData = (data = {}, indexArray = []) => {
 
   return _hasChildNodes(data[indexArray.shift()], indexArray);
 };
+
+
+export const closest = (el, t) => {
+  let matches = document.querySelectorAll(t),
+    i,
+    element = el;
+  do {
+    i = matches.length;
+    while(--i >= 0 && matches.item(i) !== element) {};
+  } while((i < 0) && (element = element.parentElement));
+  return element;
+}
