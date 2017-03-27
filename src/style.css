@@ -1,17 +1,18 @@
 /*시작 영역*/
 #marlinTreeView .start_back {padding: 30px 0 0 30px }
-#marlinTreeView .start_back ul {list-style: none; margin: 0; padding: 0 }
-#marlinTreeView .start_back ul li p {margin: 0; padding: 0 }
-#marlinTreeView .contents_start button {
+#marlinTreeView .start_back ul{list-style: none; margin: 0; padding: 0 }
+#marlinTreeView .start_back ul li p{margin: 0; padding: 0 }
+#marlinTreeView .contents_start button{
   height: 42px; font-size: 18px; text-align: center;
   margin: 10px; padding:0; display: inline-block; opacity:.7;
   border: 1px lightgray solid; border-radius: 20px; box-shadow: 0 0 10px #ddd; text-indent: 15px; }
-#marlinTreeView .contents_start button[type="button"] {width: 350px; background-position:0 -123px; }
-#marlinTreeView .contents_start button[type="submit"] {width: 150px; color: #008B8B; background-position:0 -163px; }
-#marlinTreeView .contents_start button:active {box-shadow: 0 0 10px #000; }
+#marlinTreeView .contents_start button[type="button"]{width: 350px; background-position:0 -123px; }
+#marlinTreeView .contents_start button[type="submit"]{width: 150px; color: #008B8B; background-position:0 -163px; }
+#marlinTreeView .contents_start button:active{box-shadow: 0 0 10px #000; }
+#marlinTreeView .contents_start button:hover {background-color:#e8e8e8; }
 
 /*contents wrap */
-#marlinTreeView .contents_wrap { display:flex; min-width:600px; padding:10px 0; box-sizing:border-box; }
+#marlinTreeView .contents_wrap{ display:flex; min-width:600px; padding:10px 0; box-sizing:border-box; }
 #marlinTreeView .contents_wrap ul { padding-left:40px; margin:0; list-style:none; box-sizing:border-box; }
 #marlinTreeView .contents_wrap li {position:relative; }
 
@@ -21,23 +22,23 @@
   border: 1px lightgray solid; border-radius: 20px; box-shadow: 0 0 8px #eeeeee; }
 #marlinTreeView .contents_tree:active { background-color: #fff; box-shadow: 0 0 10px #008B8B; }
 #marlinTreeView .contents_tree:hover { background-color: #e8e8e8; }
-#marlinTreeView .contents_tree:hover+ul .contents_tree { background-color: #e8e8e8; }
+#marlinTreeView .contents_tree:hover+ul .contents_tree{ background-color: #e8e8e8; }
 
 /*group on&off*/
 #marlinTreeView .contents_wrap .button_list_fold,
 #marlinTreeView .contents_wrap .button_list_none,
-#marlinTreeView .contents_wrap .button_list_unfold {
+#marlinTreeView .contents_wrap .button_list_unfold{
   position: absolute; left: -20px; top: 13px; background-position: -1px -101px; }
-#marlinTreeView .contents_wrap .button_list_unfold {transform: rotate(0deg); }
-#marlinTreeView .contents_wrap .button_list_fold {transform: rotate(90deg);}
-#marlinTreeView .contents_wrap .button_list_none {display: none; }
+#marlinTreeView .contents_wrap .button_list_unfold{transform: rotate(0deg); }
+#marlinTreeView .contents_wrap .button_list_fold{transform: rotate(90deg);}
+#marlinTreeView .contents_wrap .button_list_none{display: none; }
 
 
 /*button common*/
-#marlinTreeView button {
+#marlinTreeView button{
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAADNCAMAAAD9qcJuAAAATlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADEoqZZAAAAGXRSTlMA5LlUL+0+9NrF0QkRiyRwYaB8G6mySGmW5E5bKAAAA8hJREFUaN7tmOtuqzAQhH3DYAMGc0kz7/+iBzBuQxp7iRpFOlLmB1jV113W7LAEtkl5Du4Vo9QjqCe4y8IYb5bjJQ9WS6wQt8pyCmi3RQtkL1PGlBdA5sAvQG8LDXy9AHRTBVixygLV5FKgxVE2BUaAx0UeLBVT5RnQLyt/BpyX1XwGxMAGnAItsy8GMYMAOY7iKVDyIyfZe6V8VTzjwi+C02ddyIMLJcCpgNfoQn3KM4q4ytGa+gCScllfj36epnmTAaw/7cLqzy4M3is0U0XwYx5sl9VwBpyCXWkQA+twCuSMnwMNMwSIoHIqaLselXZheau3u1APc1mKtiGwxq9dY+FrIhyHkaqp3VZb2jV1hfbG4TYZ1t9wMmMGDXOciikNPzH6HMdmOKa6LV7e/+Xipgntd966SYL1ukHDzjWWZ1IzV2HP6yCyxTi+1yEx5LdH7/UaaGLDg1p44hZGrqqppqhrJQ24pttsLdw3Zxp3HjR7q7QVbl86YXV2yJRqW6kyO2gEAK5Wjm+PoIS2OFvMeE4oRuLddlT5cgoEFVspRMwQj9IXMa3piPQ10lU/uY/0nREvuNdE97xF9XQ9x4l1GNNqDJyGp+MZoGM9JMmVqi+7iSuKK9TabIWirq90Cz1zR9exHG3p6Ovboiqa2495Ca72aghBbpxjJKhCHTQortWSl9ZkjFHsldL9nS6p1CgOwszeq1p3k7VTp+s85wS49d5yCJf/PcP7Zuu4nqPPcWKM63FOkyPEGiyyAmPSMGvaS7U7sCnM44p0yDUa7GSfeFvoeBMiiVKGBe8egpNlbCeLQNrpIWj9jx3D495bAhwtVxlwsj+c3lOnitm5QsdisttjS53dnrjh0l6IDSduId0UdJs92bi0FT56gRrdCsu5Fa1uMtjYcXyLdyPxRYf6pFO32FRUxlRFWLf1A9BjlRikY8zJQWCV/8214bpuvbTFvOfkFu4wR9QWVB65Zv333Su1lPvCrEmao2cBxHk4IP74cWtN3a+A8S/Vz+eP7j6kvn3R4wC/fRfUdyUP7HdENtwVLoBCPgJlAYjjJ5rKLWUO1SIsWs9DHX4H2uPbpgmbGRW30AD8WZBO/Wwx9PY8u+H0LXy6Keg2e75xaSvQ5vqDXckHAP1IoR9SH/2P+swZYs6sWs70nHHWjozRc0bxfdGWbW7OqCJ+OwCQmjM7V2i2g+k5o1dOsQgm54wqdy6CqTnjcRRLzRlQYEzdHrmWJeeMR/wEQc2ZayTJOXPdW4uYM4Es1zM9Z9piTUXOmajPnPnMmVfqHwvtkR84NmxQAAAAAElFTkSuQmCC') no-repeat;
   font-size: 0; border: none; cursor: pointer; opacity: .3; padding: 0; }
-#marlinTreeView button:hover {opacity: .8;}
+#marlinTreeView button:hover{opacity: .8;}
 #marlinTreeView .button_list_unfold,
                 .button_list_fold,
                 .button_list_none,
@@ -45,49 +46,51 @@
                 .button_edit_off,
                 .button_delete,
                 .button_unlock,
-                .button_lock {width: 20px; height: 20px; }
-#marlinTreeView .button_add{width: 30px; height: 30px; margin: 5px 0 5px 5px; float: left; }
+                .button_lock{
+  width: 20px; height: 20px; }
+#marlinTreeView .button_add{
+  width: 30px; height: 30px; margin: 5px 0 5px 5px; float: left; }
 
 /*ADD버튼*/
-#marlinTreeView .button_add {background-position: -5px -128px; }
+#marlinTreeView .button_add{background-position: -5px -128px; }
 
 /*DELETE버튼*/
-#marlinTreeView .button_delete {
+#marlinTreeView .button_delete{
   width: 15px; height: 15px; margin: 12px; position: absolute; top: 0; right: 0; background-position: 0 -64px; }
 
 /*EDIT버튼*/
 #marlinTreeView .contents_tree .button_edit_on,
-#marlinTreeView .contents_tree .button_edit_off {position: absolute; top: 0; right: 38px; margin: 10px 0; }
-#marlinTreeView .contents_tree .button_edit_on {display: block; background-position: 0 -43px; }
-#marlinTreeView .contents_tree .button_edit_off {display: none; background-position: 0 -81px; }
+#marlinTreeView .contents_tree .button_edit_off{ position: absolute; top: 0; right: 38px; margin: 10px 0; }
+#marlinTreeView .contents_tree .button_edit_on{ display: block; background-position: 0 -43px; }
+#marlinTreeView .contents_tree .button_edit_off{ display: none; background-position: 0 -81px; }
 #marlinTreeView .contents_tree:hover .button_edit_off,
-#marlinTreeView .contents_tree:hover .button_lock {display: block; }
+#marlinTreeView .contents_tree:hover .button_lock{ display: block; }
 
 /*LOCK버튼*/
 #marlinTreeView .button_unlock,
-#marlinTreeView .button_lock {position: absolute; margin: 10px; background-size: 37px; }
-#marlinTreeView .button_lock {display: none; right: 60px; background-position: 0 0; }
-#marlinTreeView .button_unlock {right: 0; background-position: 3px -20px; }
+#marlinTreeView .button_lock{ position: absolute; margin: 10px; background-size: 37px; }
+#marlinTreeView .button_lock{ display: none; right: 60px; background-position: 0 0; }
+#marlinTreeView .button_unlock{ right: 0; background-position: 3px -20px; }
 
 
 /*텍스트 영역*/
-.contents_tree .text_area {min-width:250px; height:40px; padding-left: 17px; overflow: hidden;}
-.contents_tree .text_area input {
+.contents_tree .text_area{ min-width:250px; height:40px; padding-left: 17px; overflow: hidden;}
+.contents_tree .text_area input{
   width:100%; height: 25px;
   padding: 0 10px 0 5px; margin-left:5px; font-size: 18px; color: #008B8B;
   background-color: transparent; border: none; border-bottom: 1px #008B8B solid; }
-.contents_tree .text_area span {width:100%; height: 40px; line-height: 38px; display: inline-block; box-sizing: border-box; white-space:nowrap; overflow:hidden; }
+.contents_tree .text_area span{ width:100%; height: 40px; line-height: 38px; display: inline-block; box-sizing: border-box; white-space:nowrap; overflow:hidden; }
 .contents_tree .read_area {cursor: move;}
 .contents_tree .read_area:before {content:" "; display:inline-block; width:6px; height:6px; margin:0 15px 0 0; border-radius:6px; background-color:#008b8b; vertical-align: middle; }
 
 /*mobile*/
 @media all and (max-width:479px) {
 
-#marlinTreeView .contents_wrap {width:100%; min-width:0;}
-#marlinTreeView .contents_wrap ul {box-sizing:border-box; overflow:auto;}
-.contents_tree .text_area {min-width: 50px; }
-.contents_tree .text_area span {white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-#marlinTreeView .contents_start button[type="button"] {width: 80%; background-position:0 -123px; }
-#marlinTreeView .contents_start button[type="submit"] {width: 80%; color: #008B8B; background-position:0 -163px; }
+#marlinTreeView .contents_wrap{width:100%; min-width:0;}
+#marlinTreeView .contents_wrap ul { box-sizing:border-box; overflow:auto;}
+.contents_tree .text_area{ min-width: 50px; }
+.contents_tree .text_area span{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#marlinTreeView .contents_start button[type="button"]{width: 80%; background-position:0 -123px; }
+#marlinTreeView .contents_start button[type="submit"]{width: 80%; color: #008B8B; background-position:0 -163px; }
 
 }
