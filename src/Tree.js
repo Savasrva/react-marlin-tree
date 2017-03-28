@@ -66,9 +66,9 @@ export default class Tree extends React.Component {
 
   _handleToggleFold({target}) {
     const ul = target.parentElement.lastElementChild;
-    target.className = target.className === 'button_list_unfold' ? 'button_list_fold' : 'button_unlist_fold';
+    target.className = target.className === 'button_list_unfold' ? 'button_list_fold' : 'button_list_unfold';
 
-    if(target.className === 'button_list_fold') {
+    if(target.className === 'button_list_unfold') {
       ul.className = 'button_list_none';
     } else {
       ul.className = '';
